@@ -1642,6 +1642,9 @@ input, select, textarea {
 				position: absolute;
 				top: 0;
 				width: 100%;
+				/* hover efect - cri */
+				filter: blur(0px);
+				transition: opacity 1s !important, filter 3s ease-out !important;
 			}
 
 			#main .thumb > h2 {
@@ -2048,3 +2051,25 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
+
+
+/* Hover mask effect - cri */
+
+.thumb a {
+  position: relative;
+	transition: background-color 2s; /* you can adjust time */
+
+}
+
+.thumb a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(var(--mask-r), var(--mask-g), var(--mask-b), var(--mask-a));  /* fallback color */
+	transition: inherit; /* you can adjust time */
+  z-index: 1;
+  pointer-events: none; /* so that the overlay doesn't interfere with click events */
+}
