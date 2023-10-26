@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>About the Project - Visual</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>About the Project - Visual</h1>
+						<p>See the story behind the lens</p>
+					</header>
+
+					<!-- Main -->
+					<div>
+
+						<!-- Section -->
+						<section class="vertical-section">
+							<h2>Introduction</h2>
+							<img src="images/introduction.jpg" alt="Introduction">
+							<p>
+								This is where you can write a short introduction about the project.
+							</p>
+						</section>
+
+						<!-- Section -->
+						<section class="vertical-section">
+							<h2>Objective</h2>
+							<img src="images/objective.jpg" alt="Objective">
+							<p>
+								Here you can describe the objectives of your photo portfolio project.
+							</p>
+						</section>
+
+						<!-- Section -->
+						<section class="vertical-section">
+							<h2>Techniques</h2>
+							<img src="images/techniques.jpg" alt="Techniques">
+							<p>
+								Explain the techniques you've used in your photography.
+							</p>
+						</section>
+
+					</div>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+			<h1>3D Surface Plot</h1>
+
+			<div id="plotDiv" style="width:600px; height:600px;"></div>
+
+			<div>
+				<h2>On change</h2>
+
+				<input type="text" onchange="handleOnChange(event)" maxLength="5" />
+			</div>
+
+			<div>
+				<h2>On change2</h2>
+
+				<input id="timeInput" type="text"  maxLength="5" />
+			</div>
+
+
+			<div>
+				<h2>On change4</h2>
+
+				<input id="timeInput4" type="text"  maxLength="5" />
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			<script>
+				function handleOnChange(event) {
+					// Remove all characters except digits and colon
+					let value = event.target.value.replace(/[^0-9:]/g, '');
+
+					const regex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
+
+					// If the input doesn't match the regex and is not empty, set the time to '00:00'
+					if (!regex.test(value) && value !== '') {
+				      event.target.value = '00:00';
+				    } else {
+				      event.target.value = value; // Reflecting the filtered value in the input field
+				    }
+				  }
+			</script>
+
+			<script>
+
+			document.addEventListener('DOMContentLoaded', (event) => {
+  const timeInput = document.getElementById('timeInput');
+
+  timeInput.addEventListener('input', handleOnChange2);
+});
+
+			function handleOnChange2(event) {
+    // Remove all characters except digits
+    let value = event.target.value.replace(/[^0-9]/g, '');
+
+    // Insert colon after the first two numbers for hh:mm format
+    if (value.length > 2) {
+        value = value.substring(0, 2) + ':' + value.substring(2);
+    }
+
+    // Only allow up to 5 characters (hh:mm)
+    if (value.length > 5) {
+        value = value.substring(0, 5);
+    }
+
+    const regex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
+
+    // // If the input doesn't match the regex and is not empty, set the time to '00:00'
+    // if (!regex.test(value) && value !== '') {
+		// 	event.target.value = '00:00';
+    // } else {
+				event.target.value = value; // Reflecting the filtered value in the input field
+    // }
+}
+</script>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', (event) => {
+const timeInput = document.getElementById('timeInput4');
+
+timeInput.addEventListener('input', handleOnChange4);
+});
+
+function handleOnChange4(event) {
+    let value = event.target.value.replace(/[^0-9:]/g, ''); // Remove characters other than digits and colon
+
+    // Check various stages of time input to provide incremental feedback:
+    const regexPartial1 = /^[0-2]?$/;                        // Matches "1", "2"
+    const regexPartial2 = /^([01]?[0-9]|2[0-3])$/;           // Matches "12", "23", etc.
+    const regexPartial3 = /^([01]?[0-9]|2[0-3]):$/;          // Matches "12:", "23:", etc.
+    const regexPartial4 = /^([01]?[0-9]|2[0-3]):[0-5]?$/;    // Matches "12:3", "23:4", etc.
+    const regexFull = /^([01]?[0-9]|2[0-3]):[0-5][0-9]$/;    // Matches valid times like "12:34"
+
+    if (
+        !regexPartial1.test(value) &&
+        !regexPartial2.test(value) &&
+        !regexPartial3.test(value) &&
+        !regexPartial4.test(value) &&
+        !regexFull.test(value) &&
+        value !== ''
+    ) {
+				event.target.value = '00:00';
+    } else {
+			event.target.value = value; // Reflecting the filtered value in the input field
+    }
+}
+</script>
+
+
+
+
+			<script>
+
+			function implicit_eq(ax, ay, V) {
+			    var S = 1 / V;
+			    var Cx = 1 / V;
+			    var Cy = Math.pow(V, 2);
+			    return Math.pow(S, 2) - Cx * Math.pow(ax, 2) - Cy * Math.pow(ay, 2);
+			}
+
+			var ax_values = numeric.linspace(-2, 2, 30);
+			var ay_values = numeric.linspace(-2, 2, 30);
+			var V_values = numeric.linspace(0.1, 2, 30);
+
+			var zero_coords = { x: [], y: [], z: [] };
+
+			for (var i = 0; i < ax_values.length; i++) {
+			    for (var j = 0; j < ay_values.length; j++) {
+			        for (var k = 0; k < V_values.length; k++) {
+			            if (Math.abs(implicit_eq(ax_values[i], ay_values[j], V_values[k])) < 0.01) {
+			                zero_coords.x.push(ax_values[i]);
+			                zero_coords.y.push(ay_values[j]);
+			                zero_coords.z.push(V_values[k]);
+			            }
+			        }
+			    }
+			}
+
+			var data = [{
+			    x: zero_coords.x,
+			    y: zero_coords.y,
+			    z: zero_coords.z,
+			    mode: 'markers',
+			    type: 'scatter3d'
+			}];
+
+			var layout = {
+			    title: '3D Scatter plot',
+			    xaxis: { title: 'ax' },
+			    yaxis: { title: 'ay' },
+			    zaxis: { title: 'V' }
+			};
+
+			Plotly.newPlot('plotDiv', data, layout);
+
+			</script>
+
+
+	</body>
+</html>
