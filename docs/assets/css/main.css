@@ -2124,3 +2124,14 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
+
+
+		.thumb:hover > a {
+		  opacity: 0.8;
+		}
+
+		.thumb:hover > a.image {
+			transform: scale(.98) !important;
+			transform-origin: 50% 50%;
+			transition: transform .5s;
+		}
