@@ -61,14 +61,19 @@
 					<key>COMMAND_STRING</key>
 					<string>#!/bin/bash
 
-cd /Users/crhisbenitez/Documents/GH/websites/adrianah/adrianah
+#cd /Users/crhisbenitez/Documents/GH/websites/adrianah/adrianah
+
+AUTOMATOR_APP_PATH="$(cd "$(dirname "$0")" &amp;&amp; pwd)"
+
+# Navigate to the directory of the Automator app
+cd "$AUTOMATOR_APP_PATH"
 
 ./load_content.sh
 </string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>shell</key>
 					<string>/bin/bash</string>
 					<key>source</key>
