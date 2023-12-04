@@ -170,7 +170,8 @@ input, select, textarea {
 	}
 
 	body {
-		background: #242629;
+		/* background: #242629; */
+		background: #ffffff;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -230,8 +231,10 @@ input, select, textarea {
 		}
 
 	strong, b {
-		color: #ffffff;
-		font-weight: 300;
+		/* color: #ffffff; */
+		color: #000000;
+
+		font-weight: 600;
 	}
 
 	em, i {
@@ -1461,7 +1464,7 @@ input, select, textarea {
 /* Header */
 
 	body {
-		padding: 0 0 4em 0;
+		padding: 4.5em 0 0 0;
 	}
 
 	#header {
@@ -1476,9 +1479,11 @@ input, select, textarea {
 		-moz-user-select: none;
 		-ms-user-select: none;
 		-webkit-user-select: none;
-		background: #1f2224;
-		bottom: -1em;
-		height: 5em;
+		/* background: #1f2224; */
+		background: #ffffff;
+		/* bottom: -1em; */
+		top: 0;
+		height: 4em;
 		left: 0;
 		line-height: 4em;
 		padding: 0 1.5em;
@@ -1489,14 +1494,15 @@ input, select, textarea {
 	}
 
 		body.is-preload #header {
-			-moz-transform: translateY(4em);
-			-webkit-transform: translateY(4em);
-			-ms-transform: translateY(4em);
-			transform: translateY(4em);
+			-moz-transform: translateY(-4em);
+			-webkit-transform: translateY(-4em);
+			-ms-transform: translateY(-4em);
+			transform: translateY(-4em);
 		}
 
 		#header h1 {
-			color: #a0a0a1;
+			/* color: #a0a0a1; */
+			color: #000000;
 			display: inline-block;
 			font-size: 1em;
 			line-height: 1;
@@ -1506,7 +1512,9 @@ input, select, textarea {
 
 			#header h1 a {
 				border: 0;
-				color: inherit;
+				/* color: inherit; */
+				color: #000000;
+
 			}
 
 				#header h1 a:hover {
@@ -1536,7 +1544,9 @@ input, select, textarea {
 						-ms-transition: background-color 0.5s ease;
 						transition: background-color 0.5s ease;
 						border: 0;
-						color: #ffffff;
+						/* color: #ffffff; */
+						color: #000000;
+
 						display: inline-block;
 						letter-spacing: 0.1em;
 						padding: 0 1.65em;
@@ -1550,7 +1560,7 @@ input, select, textarea {
 						}
 
 						#header nav > ul > li a:hover {
-							color: #ffffff !important;
+							color: #000000 !important;
 						}
 
 						#header nav > ul > li a.active {
@@ -1636,6 +1646,7 @@ input, select, textarea {
 				position: absolute;
 				top: 0;
 				width: 100%;
+				margin: 1% 1% 1% 1%;
 			}
 
 			#main .thumb > .image {
@@ -1649,9 +1660,7 @@ input, select, textarea {
 				position: absolute;
 				top: 0;
 				width: 100%;
-				/* hover efect - cri */
-				filter: blur(0px);
-				transition: opacity 1s !important, filter 3s ease-out !important;
+				margin: 1% 1% 1% 1%;
 			}
 
 			#main .thumb > h2 {
@@ -1667,6 +1676,61 @@ input, select, textarea {
 			#main .thumb > p {
 				display: none;
 			}
+
+			/* cri thumb-empty */
+
+			#main .thumb-empty {
+				-moz-transition: opacity 1.25s ease-in-out;
+				-webkit-transition: opacity 1.25s ease-in-out;
+				-ms-transition: opacity 1.25s ease-in-out;
+				transition: opacity 1.25s ease-in-out;
+				pointer-events: auto;
+				-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+				opacity: 1;
+				overflow: hidden;
+				position: relative;
+			}
+
+				#main .thumb-empty:after {
+					pointer-events: none;
+					background-size: cover;
+					content: '';
+					display: block;
+					height: 100%;
+					left: 0;
+					position: absolute;
+					top: 0;
+					width: 100%;
+					margin: 1% 1% 1% 1%;
+				}
+
+				#main .thumb-empty > .image {
+					-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: cover;
+					border: 0;
+					height: 100%;
+					left: 0;
+					position: absolute;
+					top: 0;
+					width: 100%;
+					margin: 1% 1% 1% 1%;
+				}
+
+				#main .thumb-empty > h2 {
+					pointer-events: none;
+					bottom: 1.875em;
+					font-size: 0.8em;
+					left: 2.1875em;
+					margin: 0;
+					position: absolute;
+					z-index: 1;
+				}
+
+				#main .thumb-empty > p {
+					display: none;
+				}
 
 		#main:after {
 			pointer-events: none;
@@ -1810,9 +1874,11 @@ input, select, textarea {
 				-webkit-transition-delay: 2.075s;
 				-ms-transition-delay: 2.075s;
 				transition-delay: 2.075s;
-				height: calc(40vh - 2em);
+				/* height: calc(40vh - 2em); */
+				height: calc(50vh - 2em);
 				min-height: 20em;
-				width: 33.33333%;
+				/* width: 33.33333%; */
+				width: 50%;
 			}
 
 				#main .thumb:nth-child(1) {
@@ -2058,25 +2124,3 @@ input, select, textarea {
 		#footer .copyright a {
 			color: inherit;
 		}
-
-
-/* Hover mask effect - cri */
-
-.thumb a {
-  position: relative;
-	transition: background-color 2s; /* you can adjust time */
-
-}
-
-.thumb a::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(var(--mask-r), var(--mask-g), var(--mask-b), var(--mask-a));  /* fallback color */
-	transition: inherit; /* you can adjust time */
-  z-index: 1;
-  pointer-events: none; /* so that the overlay doesn't interfere with click events */
-}
