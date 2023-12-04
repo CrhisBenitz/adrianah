@@ -61,6 +61,7 @@
 					<key>COMMAND_STRING</key>
 					<string>#!/bin/bash
 
+cd /Users/crhisbenitez/Documents/GH/websites/adrianah/adrianah
 
 ./load_content.sh
 </string>
