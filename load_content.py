@@ -29,7 +29,7 @@ def get_title_desc(path_to_txt):
         desc = desc_a[0]
     return title, desc
 
-full_path = "/Users/crhisbenitez/Documents/GH/websites/adrianah/adrianah/docs/"
+full_path = "/Users/adriana/Desktop/website/adrianah/docs/"
 
 pages = sorted([pages.split("/")[-1] for pages in glob.glob(full_path+"contenido/"+"*")])
 nav_bar_string = ""
