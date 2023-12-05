@@ -50,20 +50,22 @@ for page in pages:
 
     ims = [sorted([c.split("/")[-1] for c in glob.glob(full_path+"contenido/"+page+"/"+col+"/*.jpg")]) for col in cols]
     nims = [len(im) for im in ims]
-    for i in range(ncols):
-        images_main_string = images_main_string + "<div class=\"column\">\n"
-        for j in range(nims[i]):
-            title,desc = get_title_desc(full_path+"contenido/"+page+"/"+cols[i]+"/"+ims[i][j].split(".")[0]+".txt")
-            sims = "<article class=\"thumb\" >\n"
-            sims = sims + "<a href=\"contenido/" + page + "/" + cols[i] + "/" + ims[i][j] + "\" class=\"image\">"
-            #sims = sims + "<img src=\"contenido/" + page.replace(" ","\ ") + "/" + cols[i] + "/" + ims[i][j] +"\" alt=\"\" /></a>\n"
-            sims = sims + "<img src=\"contenido/" + page + "/" + cols[i] + "/" + ims[i][j] +"\" alt=\"\" /></a>\n"
-            sims = sims + "<h2>" + title + "</h2>\n"
-            sims = sims + "<p>" + desc + "</p>\n"
-            sims = sims + "</article>"
-            images_main_string = images_main_string + sims
-        images_main_string = images_main_string + "</div>\n"
+    for j in range(max(nims)):
+        for i in range(ncols):
+            if nims[i]>j:
 
+
+                title,desc = get_title_desc(full_path+"contenido/"+page+"/"+cols[i]+"/"+ims[i][j].split(".")[0]+".txt")
+                sims = "<article class=\"thumb\" style=\"width:"
+                sims = sims+ str(100/ncols) + "%;\">\n"
+                sims = sims + "<a href=\"contenido/" + page + "/" + cols[i] + "/" + ims[i][j] + "\" class=\"image\">"
+                sims = sims + "<img src=\"contenido/" + page.replace(" ","\ ") + "/" + cols[i] + "/" + ims[i][j] +"\" alt=\"\" /></a>\n"
+                sims = sims + "<h2>" + title + "</h2>\n"
+                sims = sims + "<p>" + desc + "</p>\n"
+                sims = sims + "</article>"
+                images_main_string = images_main_string + sims
+            else:
+                images_main_string = images_main_string + "<article class=\"thumb-empty\" style=\"width:" + str(100/ncols) + "%;\">\n</article>"
 
     ddick[page]["images_main"] = images_main_string
     ddick[page]["navbar_list"] = nav_bar_string
