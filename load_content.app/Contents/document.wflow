@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>523</string>
+	<string>520</string>
 	<key>AMApplicationVersion</key>
 	<string>2.10</string>
 	<key>AMDocumentVersion</key>
@@ -61,7 +61,8 @@
 					<key>COMMAND_STRING</key>
 					<string>#!/bin/bash
 
-cd /Users/crhisbenitez/Documents/GH/websites/adrianah/adrianah
+cd /Users/adriana/Desktop/website/adrianah
+
 
 ./load_content.sh
 </string>
@@ -179,7 +180,7 @@ cd /Users/crhisbenitez/Documents/GH/websites/adrianah/adrianah
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>309.000000:308.000000</string>
+				<string>309.000000:252.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
